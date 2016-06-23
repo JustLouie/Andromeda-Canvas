@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.Main-page {
+  width: 100%;
+  height: auto;
+  float: left; }
+
+.Main-circle {
+  width: 80vh;
+  height: 80vh;
+  margin: auto; }
+
+#Main-circle {
+  margin-top: 40px; }
+
+.core {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+/*# sourceMappingURL=style.css.map */
