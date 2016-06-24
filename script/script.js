@@ -26,7 +26,7 @@ function draw()
 	ctx.save();
 	ctx.translate(canvas.width/2,canvas.height/2);
 	var time = new Date();
- 	ctx.rotate( ((2*Math.PI)/6)*time.getSeconds()+ ( (2*Math.PI)/6000)*time.getMilliseconds());
+ 	ctx.rotate( ((2*Math.PI)/10)*time.getSeconds()+ ( (2*Math.PI)/10000)*time.getMilliseconds());
  	ctx.translate(0,30);
 	ctx.arc(canvas.width/4.3,canvas.height/4.3,20,0,2*Math.PI);
 	ctx.fill();
@@ -38,7 +38,7 @@ function draw()
 	ctx.strokeStyle="#000000";
 	ctx.save();
 	ctx.translate(canvas.width/2,canvas.height/2);
- 	ctx.rotate( ((2*Math.PI)/6)*time.getSeconds()+ ( (2*Math.PI)/6000)*time.getMilliseconds());
+ 	ctx.rotate( ((2*Math.PI)/8)*time.getSeconds()+ ( (2*Math.PI)/8000)*time.getMilliseconds());
  	ctx.translate(0,30);
  	ctx.arc(canvas.width/26,canvas.height/26,10,0,2*Math.PI);
  	ctx.fill();	
