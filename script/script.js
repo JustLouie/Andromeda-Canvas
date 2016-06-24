@@ -1,15 +1,17 @@
 
-
-function Main_circle()
+var raf = 	window.mozRequestAnimationFrame ||
+        	window.webkitRequestAnimationFrame ||
+        	window.msRequestAnimationFrame ||
+        	window.oRequestAnimationFrame;
+function draw()
 {
+	ctx.clearRect(0,0,canvas.width,canvas.height);
 	ctx.beginPath();
 	ctx.arc(canvas.width/2,canvas.height/2,290,0,2*Math.PI);
 	ctx.lineWidth=6;
 	ctx.strokeStyle="#ED4844";
 	ctx.stroke();
-}
-function Core()
-{	
+
 	ctx.beginPath();
 	ctx.fillStyle="#ED4844";
 	ctx.arc(canvas.width/2,canvas.height/2,50,0,2*Math.PI);
@@ -17,91 +19,60 @@ function Core()
 	ctx.lineWidth=6;
 	ctx.strokeStyle="#ED4844";
 	ctx.stroke();
-}
-function Project_circle()
-{
-	var 
-	    container = $("#Main-circle"),
-	    width = container.width(),
-	    height = container.height(),
-	    angle = 0,
-	    step = (2*Math.PI) / container.length;
-	var radius = width/2;
+
 	ctx.beginPath();
 	ctx.fillStyle="#ED4844";
-	container.each(function() {
-	    var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2),
-	        y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
-	    ctx.arc(x-150,y+50,20,0,2*Math.PI);
-	    angle += step;
-
-	});
-	ctx.fill();
 	ctx.strokeStyle="#ED4844";
+	ctx.save();
+	ctx.translate(canvas.width/2,canvas.height/2);
+	var time = new Date();
+ 	ctx.rotate( ((2*Math.PI)/6)*time.getSeconds()+ ( (2*Math.PI)/6000)*time.getMilliseconds());
+ 	ctx.translate(0,30);
+	ctx.arc(canvas.width/4.3,canvas.height/4.3,20,0,2*Math.PI);
+	ctx.fill();
+	ctx.translate(105,0);
 	ctx.stroke();
+	ctx.restore();
+
 }
 var canvas= document.getElementById("Main-circle");
 var ctx= canvas.getContext("2d");
-Main_circle();
-Core();
-Project_circle();
+draw();
+setInterval(draw,20);
 
 
 
-
-// var canvas = document.getElementById("myCanvas");
-// var ctx = canvas.getContext("2d");
-
-// var canvasOffset = $("#myCanvas").offset();
-// var offsetX = canvasOffset.left;
-// var offsetY = canvasOffset.top;
-
-// var myCircle = {
-//     x: 95,
-//     y: 50,
-//     radius: 40,
-//     rr: 25 * 25, // radius squared
-//     hovercolor: "red",
-//     blurcolor: "green",
-//     isHovering: false
-// }
-
-//     function drawCircle(circle) {
-//         ctx.beginPath();
-//         ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
-//         ctx.closePath();
-//         ctx.fillStyle = circle.isHovering ? circle.hovercolor : circle.blurcolor;
-//         ctx.fill();
-//     }
-
-// drawCircle(myCircle);
-
-// function handleMouseMove(e) {
-//     mouseX = parseInt(e.clientX - offsetX);
-//     mouseY = parseInt(e.clientY - offsetY);
-//     var dx = mouseX - myCircle.x;
-//     var dy = mouseY - myCircle.y;
-
-//     // math to test if mouse is inside circle
-//     if (dx * dx + dy * dy < myCircle.rr) {
-
-//         // change to hovercolor if previously outside
-//         if (!myCircle.isHovering) {
-//             myCircle.isHovering = true;
-//             drawCircle(myCircle);
-//         }
-
-//     } else {
-
-//         // change to blurcolor if previously inside
-//         if (myCircle.isHovering) {
-//             myCircle.isHovering = false;
-//             drawCircle(myCircle);
-//         }
-//     }
+// var raf = 	window.mozRequestAnimationFrame ||
+//         	window.webkitRequestAnimationFrame ||
+//         	window.msRequestAnimationFrame ||
+//          	window.oRequestAnimationFrame;
+      	
+// function myfunc()
+// {
+// 	var canvas = document.getElementById('Main-circle');
+// 	var ctx = canvas.getContext('2d');
+// 	ctx.clearRect(0,0,canvas.width,canvas.height);
+// 	ctx.beginPath();
+// 	ctx.fillStyle='red';
+//     ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+//     ctx.lineWidth=11;
+// 	ctx.save();
+// 	ctx.translate(500,300);
+// 	var time = new Date();
+// 	ctx.rotate( ((2*Math.PI)/6)*time.getSeconds()+ ( (2*Math.PI)/6000)*time.getMilliseconds());
+// 	ctx.translate(30,30);
+// 	ctx.arc(50,50,50,0,2*Math.PI);
+// 	ctx.stroke();
+// 	ctx.restore();
+	
 
 // }
-
-// $("#myCanvas").mousemove(function (e) {
-//     handleMouseMove(e);
-// });
+// setInterval(myfunc,20);
+//  function animate()
+// {
+	
+// } 
+//  window.onload=function()
+//  {
+//  	animate();
+//  }

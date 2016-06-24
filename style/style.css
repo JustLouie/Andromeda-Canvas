@@ -13,7 +13,8 @@
   margin: auto; }
 
 #Main-circle {
-  margin-top: 40px; }
+  margin-top: 40px;
+  border: 1px solid grey; }
 
 .core {
   width: 60px;
